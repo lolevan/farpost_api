@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from ....ads.models import Ad
+from ...models import Ad
 
 
 class Command(BaseCommand):
