@@ -21,7 +21,7 @@ API-сервис для получения данных о первых 10 об�
 
     ```bash
     python -m venv env
-    source env/bin/activate   # Для Windows используйте `env\Scripts\activate`
+    source venv/bin/activate   # Для Windows используйте `venv\Scripts\activate`
     ```
 
 3. Установите зависимости:
@@ -69,7 +69,7 @@ API-сервис для получения данных о первых 10 об�
 ### Регистрация пользователя
 
 ```bash
-curl -X POST http://localhost:8000/register/ \
+curl -X POST http://localhost:8000/api/register/ \
      -H "Content-Type: application/json" \
      -d '{
            "username": "testuser",
@@ -81,32 +81,32 @@ curl -X POST http://localhost:8000/register/ \
 ### Получение токена аутентификации
 
 ```bash
-curl -X POST http://localhost:8000/api-token-auth/ \
+curl -X POST http://localhost:8000/api/api-token-auth/ \
      -H "Content-Type: application/json" \
      -d '{
-           "username": "testuser",
-           "password": "testpassword"
+           "username": "admin",
+           "password": "admin"
          }'
 ```
 
 ### Получение списка объявлений
 
 ```bash
-curl -X GET http://localhost:8000/ads/ \
+curl -X GET http://localhost:8000/api/ads/ \
      -H "Authorization: Token YOUR_TOKEN_HERE"
 ```
 
 ### Получение информации об объявлении по ID
 
 ```bash
-url -X GET http://localhost:8000/ads/1/ \
+url -X GET http://localhost:8000/api/ads/1/ \
      -H "Authorization: Token YOUR_TOKEN_HERE"
 ```
 
 ### Создание нового объявления
 
 ```bash
-curl -X POST http://localhost:8000/ads/ \
+curl -X POST http://localhost:8000/api/ads/ \
      -H "Authorization: Token YOUR_TOKEN_HERE" \
      -H "Content-Type: application/json" \
      -d '{
@@ -121,7 +121,7 @@ curl -X POST http://localhost:8000/ads/ \
 ### Обновление объявления
 
 ```bash
-curl -X PUT http://localhost:8000/ads/1/ \
+curl -X PUT http://localhost:8000/api/ads/1/ \
      -H "Authorization: Token YOUR_TOKEN_HERE" \
      -H "Content-Type: application/json" \
      -d '{
@@ -136,7 +136,7 @@ curl -X PUT http://localhost:8000/ads/1/ \
 ### Удаление объявления
 
 ```bash
-curl -X DELETE http://localhost:8000/ads/1/ \
+curl -X DELETE http://localhost:8000/api/ads/1/ \
      -H "Authorization: Token YOUR_TOKEN_HERE"
 ```
 
